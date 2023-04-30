@@ -158,47 +158,27 @@
 
 \def\empty{}
 \def\nama#1{\def\@nama{#1}}
-\newcommand{\pnama}{\@nama}
+\def\namasingkat#1{\def\@namasingkat{#1}}
 \def\nim#1{\def\@nim{#1}}
-\newcommand{\pnim}{\@nim}
 \def\prodi#1{\def\@prodi{#1}}
-\newcommand{\pprodi}{\@prodi}
 \def\departemen#1{\def\@departemen{#1}}
-\newcommand{\pdepartemen}{\@departemen}
 \def\fakultas#1{\def\@fakultas{#1}}
-\newcommand{\pfakultas}{\@fakultas}
 \def\universitas#1{\def\@universitas{#1}}
-\newcommand{\puniversitas}{\@universitas}
 \def\tahun#1{\def\@tahun{#1}}
-\newcommand{\ptahun}{\@tahun}
 
 \def\tanggalujian#1{\def\@tanggalujian{#1}}
-\newcommand{\ptanggalujian}{\@tanggalujian}
 \def\tanggalpernyataan#1{\def\@tanggalpernyataan{#1}}
-\newcommand{\ptanggalpernyataan}{\@tanggalpernyataan}
 \def\kotapernyataan#1{\def\@kotapernyataan{#1}}
-\newcommand{\pkotapernyataan}{\@kotapernyataan}
-
 
 \def\pembimbingsatu#1{\def\@pembimbingsatu{#1}}
-\newcommand{\ppembimbingsatu}{\@pembimbingsatu}
 \def\pembimbingdua#1{\def\@pembimbingdua{#1}}
-\newcommand{\ppembimbingdua}{\@pembimbingdua}
 \def\nikpembimbingsatu#1{\def\@nikpembimbingsatu{#1}}
-\newcommand{\pnikpembimbingsatu}{\@nikpembimbingsatu}
 \def\nikpembimbingdua#1{\def\@nikpembimbingdua{#1}}
-\newcommand{\pnikpembimbingdua}{\@nikpembimbingdua}
 \def\kadep#1{\def\@kadep{#1}}
-\newcommand{\pkadep}{\@kadep}
 \def\nipkadep#1{\def\@nipkadep{#1}}
-\newcommand{\pnipkadep}{\@nipkadep}
 
 \def\titleen#1{\def\@titleen{#1}}
-\newcommand{\ptitle}{\@title}
-\newcommand{\ptitleen}{\@titleen}
-
 \def\isproposal#1{\def\@isproposal{#1}}
-\newcommand{\pisproposal}{\@isproposal}
 \isproposal{}
 \def\istesis{\def\@isproposal{false}}
 
@@ -246,8 +226,8 @@
     memperoleh gelar Magister Ilmu Komputer/Informatika \\
     \vspace{10mm}
     Disusun oleh: \\
-    \pnama \\
-    NIM \pnim \\
+    \@nama \\
+    NIM: \@nim \\
     \vfill
     \includegraphics[width=.3\textwidth]{logo-ub.png}
     \vfill
@@ -255,12 +235,12 @@
   \MakeUppercase{
     \centering{
       \Large
-      Program Studi \pprodi \\
+      Program Studi \@prodi \\
       % Departemen \pdepartemen \\
-      \pfakultas \\
-      \puniversitas \\
+      \@fakultas \\
+      \@universitas \\
       Malang \\
-      \ptahun \\
+      \@tahun \\
     }
   }
   % ]%
@@ -268,12 +248,8 @@
 
 \newcommand{\isaproposal}[1] {
   \ifthenelse{\equal{#1}{}}
-  {
-    \MakeUppercase{Proposal Tesis}
-  } 
-  {
-    \MakeUppercase{Tesis}
-  }
+  {\MakeUppercase{Proposal Tesis}} 
+  {\MakeUppercase{Tesis}}
 }
 
 \newcommand{\withkadep}[1]{
@@ -282,11 +258,11 @@
   {
     \begin{tabular}{ c } 
     Mengetahui \\
-    Ketua Departemen \pdepartemen \\ 
+    Ketua Departemen \@departemen \\ 
     \vspace{15mm} \\ 
-    \pkadep \\
+    \@kadep \\
     \hline
-    \pnipkadep \\ 
+    \@nipkadep \\ 
     \end{tabular}
   }
 }
@@ -297,9 +273,9 @@
     \begin{tabular}{ c } 
       Dosen Pembimbing \\ 
       \vspace{15mm}  \\ 
-      \ppembimbingsatu \\
+      \@pembimbingsatu \\
       \cline{1-1}
-      \pnikpembimbingsatu \\ 
+      \@nikpembimbingsatu \\ 
     \end{tabular} 
   } % if p2 is empty
   {
@@ -307,11 +283,11 @@
     \begin{tabular}{ ccc } 
       Dosen Pembimbing I & & Dosen Pembimbing II \\ 
       \vspace{15mm} & &  \\ 
-      \ppembimbingsatu & & \ppembimbingdua \\
+      \@pembimbingsatu & & \@pembimbingdua \\
       \cline{1-1}
       \cline{3-3}
-      \pnikpembimbingsatu & &      
-      \pnikpembimbingdua \\ 
+      \@nikpembimbingsatu & &      
+      \@nikpembimbingdua \\ 
     \end{tabular}
   }
 }
@@ -337,8 +313,8 @@
     }
     \vspace{10mm}
     Disusun oleh: \\ 
-    \pnama \\
-    NIM \pnim \\
+    \@nama \\
+    NIM: \@nim \\
     \vspace{10mm}
     \ifthenelse{\equal{\@isproposal}{}}
     {
@@ -348,7 +324,7 @@
       } 
     {
       Tesis ini telah diuji dan dinyatakan lulus pada \\
-      \ptanggalujian \\
+      \@tanggalujian \\
       Telah diperiksa dan disetujui oleh: \\ 
       \vspace{10mm}
     }
@@ -360,7 +336,7 @@
   }
 }
 
-\newcommand{\pernyataanorisinalitas}[1]{
+\newcommand{\pernyataanorisinalitas}[2][long]{
   \newpage
   \centering{
     \bfseries\LARGE{
@@ -379,16 +355,17 @@
 
   \vspace{10mm}
   \hfill\begin{minipage}{\dimexpr\textwidth-9cm}
-    \pkotapernyataan, \ptanggalpernyataan
+    \@kotapernyataan, \@tanggalpernyataan
     
     \vspace{10mm}
-    \ifthenelse{\equal{#1}{meterai}}
+    \ifthenelse{\equal{#2}{meterai}}
     {[Meterai]} % if is empty
     {\phantom{ }}
-    \vspace{10mm}
-
-    \uline{\pnama} \\
-    NIM \pnim
+    \vspace{10mm}\\
+    \ifthenelse{\equal{#1}{long}}
+    {\uline{\@nama} \\}%
+    {\uline{\@namasingkat} \\}%
+    NIM: \@nim
     \xdef\tpd{0}
   \end{minipage}
 
