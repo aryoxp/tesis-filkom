@@ -1,0 +1,86 @@
+\documentclass[12pt]{tesis-filkom}
+
+\title{Title and Description of The Document as a Template for the Thesis at Filkom Judulnya Sedikit Lebih Panjang}
+\titleen{Judul Tesis dalam Bahasa Inggris}
+
+\nama{Sunama Mahasiswa}
+\nim{21234918239823}
+
+\prodi{Magister Ilmu Komputer}
+\departemen{Teknik Informatika}
+\fakultas{Fakultas Ilmu Komputer}
+\universitas{Universitas Brawijaya}
+\tahun{2023}
+
+\tanggalujian{4 September 2022}
+\pembimbingsatu{Djoko Bimbing Satu, Ph.D}
+\nikpembimbingsatu{NIP 123456789}
+
+% kalau pembimbing tunggal
+\pembimbingdua{}
+\nikpembimbingdua{}
+
+% kalau ada pembimbing dua
+% enable dua baris command berikut ini:
+\pembimbingdua{Dr. dr. Djoki Bimbing Dua, Dr.Sc}
+\nikpembimbingdua{NIK 983298344}
+
+% Jika ini adalah tesis (bukan proposal tesis)
+% enable command \istesis berikut ini:
+% \istesis
+
+% Jika ini adalah naskah akhir
+% enable dua baris command berikut ini:
+\kadep{Dr.Phil Djoku Kadep, S.Kom., M.Dcs, Ph.D}
+\nipkadep{NIP 001923189283398233}
+
+\kotapernyataan{Malang}
+\tanggalpernyataan{1 Januari 2015}
+
+
+
+
+
+
+
+\begin{document}
+
+
+
+\maketitle
+\addtocontents{toc}{\vspace{5mm}}
+\pagenumbering{roman}
+\setcounter{page}{0}
+\lembarpengesahan
+\pernyataanorisinalitas{meterai}
+
+\setstretch{1.05}
+\setlength{\parskip}{0.25em}
+
+% \pernyataanorisinalitas{}
+\include{prakata.tex}
+\include{abstrak.tex}
+% \include{abstract.tex}
+
+\addcontentsline{toc}{section}{\MakeUppercase{Daftar Isi}}
+\tableofcontents
+\listoffigures
+\listoftables
+\listofappendix
+
+\include{babs/1-pendahuluan.tex}
+\include{babs/2-landasan-pustaka.tex}
+\include{babs/3-metodologi.tex}
+\include{babs/4-hasil.tex}
+\include{babs/5-pembahasan.tex}
+\include{babs/6-penutup.tex}
+
+
+\renewcommand{\refname}{\centering\LARGE\MakeUppercase{Daftar Pustaka}}
+\addcontentsline{toc}{section}{\MakeUppercase{Daftar Pustaka}}
+\bibliography{referensi}
+\bibliographystyle{apalike}
+
+\include{lampiran.tex}
+
+\end{document}
