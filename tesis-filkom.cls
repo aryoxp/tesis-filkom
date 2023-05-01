@@ -17,7 +17,7 @@
 % \ProcessOptions\relax
 \LoadClass[12pt]{article}
 
-\usepackage[english,indonesian]{babel}
+\usepackage[english,bahasai]{babel}
 \usepackage{multicol,blindtext,ragged2e}
 \usepackage{titlesec}
 \titleformat*{\section}{\fontsize{16}{20}\bfseries\selectfont}
@@ -26,14 +26,15 @@
 \usepackage{indentfirst}
 \usepackage{setspace}
 \usepackage{enumitem}
-\usepackage{csquotes}
+\usepackage[utf8]{inputenc}
+\usepackage[autostyle=false]{csquotes}
 \usepackage{longtable}
 \usepackage[all]{nowidow}
 \usepackage{graphicx}
 \usepackage{soul}
 \usepackage{ulem}
 \usepackage{gensymb}
-
+\usepackage{textcomp}
 \usepackage{amsmath}
 \newcommand\eqnumber{\addtocounter{equation}{1}\tag{\theequation}}
 
@@ -351,7 +352,7 @@
 
   Saya menyatakan dengan sebenar-benarnya bahwa sepanjang pengetahuan saya, di dalam naskah tesis ini tidak terdapat karya ilmiah yang pernah diajukan oleh orang lain untuk memperoleh gelar akademik di suatu perguruan  tinggi, dan tidak terdapat karya atau pendapat yang pernah ditulis atau diterbitkan oleh orang lain, kecuali yang secara tertulis disitasi dalam naskah ini dan disebutkan dalam daftar referensi. 
 
-  Apabila ternyata didalam naskah tesis ini dapat dibuktikan terdapat unsur-unsur plagiasi, saya bersedia tesis ini digugurkan dan gelar akademik yang telah saya peroleh (sarjana) dibatalkan, serta diproses sesuai dengan peraturan perundang-undangan yang berlaku (UU No. 20 Tahun 2003, Pasal 25 ayat 2 dan Pasal 70). 
+  Apabila ternyata didalam naskah tesis ini dapat dibuktikan terdapat unsur-unsur plagiasi, saya bersedia tesis ini digugurkan dan gelar akademik yang telah saya peroleh (sarjana) dibatalkan, serta diproses sesuai dengan peraturan perundang-undangan yang berlaku (UU No. 20 Tahun 2003, Pasal 25 ayat 2 dan Pasal 70).
 
   \vspace{10mm}
   \hfill\begin{minipage}{\dimexpr\textwidth-9cm}
@@ -366,7 +367,7 @@
     {\uline{\@nama} \\}%
     {\uline{\@namasingkat} \\}%
     NIM: \@nim
-    \xdef\tpd{0}
+    % \xdef\tpd{0}
   \end{minipage}
 
 }
