@@ -218,13 +218,22 @@
     \bfseries
     \MakeUppercase{\@title} \\
     \vspace{10mm}
-    \bfseries{TESIS} \\
+    \isaproposal{\@isproposal} \\
+    \normalfont
+    \large
+    % \fontsize{12}{15}\selectfont
+    \ifthenelse{\equal{\@isproposal}{}}
+    {} 
+    {
+      \vspace{10mm}
+      Untuk memenuhi sebagian persyaratan \\
+      memperoleh gelar Magister Ilmu Komputer/Informatika \\
+    }
     \vspace{10mm}
   }
   \centering{
     \large
-    Untuk memenuhi sebagian persyaratan \\
-    memperoleh gelar Magister Ilmu Komputer/Informatika \\
+
     \vspace{10mm}
     Disusun oleh: \\
     \@nama \\
@@ -257,10 +266,15 @@
   \ifthenelse{\equal{#1}{}}
   {} % if kadep is empty
   {
-    \begin{tabular}{ c } 
+    \renewcommand{\arraystretch}{1}
+    \begin{tabular}{ c }
     Mengetahui \\
-    Ketua Departemen \@departemen \\ 
-    \vspace{15mm} \\ 
+    Ketua Departemen \@departemen \\
+    \ifthenelse{\equal{\@pembimbingdua}{}}
+    {\vspace{18mm} \\}{\vspace{18mm} \\}
+    \end{tabular}    
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{ c }
     \@kadep \\
     \hline
     \@nipkadep \\ 
@@ -271,16 +285,20 @@
 \newcommand{\pembimbingtunggal}[1] {
   \ifthenelse{\equal{#1}{}}
   {
+    \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{ c } 
-      Dosen Pembimbing \\ 
-      \vspace{15mm}  \\ 
-      \@pembimbingsatu \\
-      \cline{1-1}
-      \@nikpembimbingsatu \\ 
-    \end{tabular} 
-  } % if p2 is empty
+    Dosen Pembimbing \\
+    \vspace{15mm} \\ 
+    \@pembimbingsatu \\
+    \hline
+    \@nikpembimbingsatu \\ 
+    \end{tabular}
+    \vspace{8mm}
+
+    } % if p2 is empty
   {
     \phantom{ }\vspace{10mm}
+    \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{ ccc } 
       Dosen Pembimbing I & & Dosen Pembimbing II \\ 
       \vspace{15mm} & &  \\ 
@@ -290,6 +308,7 @@
       \@nikpembimbingsatu & &      
       \@nikpembimbingdua \\ 
     \end{tabular}
+    % \renewcommand{\arraystretch}{1}
   }
 }
 
@@ -312,11 +331,11 @@
     {
       Diajukan untuk memenuhi sebagian persyaratan \\ memperoleh gelar Magister Ilmu Komputer/Teknik Informatika \\ 
     }
-    \vspace{10mm}
+    \vspace{5mm}
     Disusun oleh: \\ 
     \@nama \\
     NIM: \@nim \\
-    \vspace{10mm}
+    \vspace{5mm}
     \ifthenelse{\equal{\@isproposal}{}}
     {
       Proposal Tesis ini\\ 
@@ -327,11 +346,11 @@
       Tesis ini telah diuji dan dinyatakan lulus pada \\
       \@tanggalujian \\
       Telah diperiksa dan disetujui oleh: \\ 
-      \vspace{10mm}
+      \vspace{5mm}
     }
     \begin{center}
     \pembimbingtunggal{\@pembimbingdua}
-    \vspace{10mm}
+    % \vspace{5mm}
     \withkadep{\@kadep}
     \end{center}
   }

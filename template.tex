@@ -23,17 +23,19 @@
 
 % kalau ada pembimbing dua
 % enable dua baris command berikut ini:
-\pembimbingdua{Dr. dr. Djoki Bimbing Dua, Dr.Sc}
-\nikpembimbingdua{NIK 983298344}
+% \pembimbingdua{Dr. dr. Djoki Bimbing Dua, Dr.Sc}
+% \nikpembimbingdua{NIK 983298344}
 
 % Jika ini adalah tesis (bukan proposal tesis)
 % enable command \istesis berikut ini:
-\istesis
+% \istesis
 
-% Jika ini adalah naskah akhir
-% enable dua baris command berikut ini:
-\kadep{Dr.Phil Djoku Kadep, S.Kom., M.Dcs, Ph.D}
-\nipkadep{NIP 001923189283398233}
+\ifthenelse{\equal{\@isproposal}{}}
+{}{
+  \kadep{Dr.Phil Djoku Kadep, S.Kom., M.Dcs, Ph.D}
+  \nipkadep{NIP 001923189283398233}
+}
+
 
 \kotapernyataan{Malang}
 \tanggalpernyataan{1 Januari 2015}
